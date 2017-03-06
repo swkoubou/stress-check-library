@@ -3,11 +3,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #csv形式のデータを読み込む
-data = pd.read_csv("heartrate.csv")
+def input_csv(filename):
+    data = pd.read_csv(filename)
+    return data
 
+#datatimeindex型のデータ
+def moving_average(data):
+    sma=pd.rolling_mean(data, 120)
+    data.plot(style='<--')
+    sma.plot(style='--', c='r')
 
-sma=pd.rolling_mean(data, 120)
-data.plot(style='<--')
-sma.plot(style='--', c='r')
-
-plt.show()
+#テスト用
+if __name__ == '__main__':
+    data=input_csv('heartrate.csv')
+    moving_average(data)
+    plt.show()
