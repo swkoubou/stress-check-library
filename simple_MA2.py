@@ -13,18 +13,14 @@ def moving_average(data):
     return ma
 
 #心拍数の最低値と最高値と平均値を求める
-def all(data):
-    ave=sum(data.value)/len(data.value)
-    a=max(data.value)
-    b=min(data.value)
-    print(ave)
-    print(a)
-    print(b)
+#def
+    #
+
 #テスト用
 if __name__ == '__main__':
     data=input_csv('heartrate.csv')
     ma=moving_average(data)
-    all(ma)
+
     data.plot(style='<--')
     ma.plot(style='--', c='r')
-    #plt.show()
+    plt.show()
