@@ -13,12 +13,23 @@ def moving_average(data):
     return ma
 
 #心拍数の最低値と最高値と平均値を求める
+<<<<<<< HEAD
 #def check(ma)
 
+=======
+def all(data):
+    ave=sum(data.value)/len(data.value)
+    a=max(data.value)
+    b=min(data.value)
+    print(ave)
+    print(a)
+    print(b)
+>>>>>>> ace45b85dba8a1fcb64ef503ca73b7d6d662e407
 #テスト用
 if __name__ == '__main__':
     data=input_csv('heartrate.csv')
     ma=moving_average(data)
+<<<<<<< HEAD
 
     #print(ma.value[120:122])
     print('合計:',sum(ma.value))
@@ -30,3 +41,9 @@ if __name__ == '__main__':
     plt.show()
     '''
     
+=======
+    all(ma)
+    data.plot(style='<--')
+    ma.plot(style='--', c='r')
+    #plt.show()
+>>>>>>> ace45b85dba8a1fcb64ef503ca73b7d6d662e407
