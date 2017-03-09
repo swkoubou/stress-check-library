@@ -2,34 +2,36 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-#csv形式のデータを読み込む
-def input_csv(filename):
-    data = pd.read_csv(filename)
-    return data
+class Stress_Check:
+    #コンストラクタ
+    def __init__(self):
+        self.name=''
 
-#datetimeindex型のデータを単純移動平均する
-def moving_average(data):
-    ma=pd.rolling_mean(data, 120)
-    return ma
+    #csv形式のデータを読み込む 戻り値ははDataFrame
+    def input_csv(self, filename):
+        data = pd.read_csv(filename)
+        return data
 
-#心拍数の最低値と最高値と平均値を求める
-def all(data):
-    ave=sum(data.value)/len(data.value)
-    a=max(data.value)
-    b=min(data.value)
-    print(ave)
-    print(a)
-    print(b)
+    #datetimeindex型のデータを単純移動平均する
+    #１日のデータを計算する
+    def day_moving_average(self, data):
+        ma=pd.rolling_mean(data, 120, 1) #データの個数によって変更
+        return ma
 
-#テスト用
-if __name__ == '__main__':
-    data=input_csv('heartrate.csv')
-    ma=moving_average(data)
+    #1週間のデータを計算する
+    def week_moving_average(self, data):
+        ma=pd.rolling_mean(data, 120, 1)
+        return ma
 
-    print('合計:',sum(ma.value))
-   
-    all(ma)
-    data.plot(style='<--')
-    ma.plot(style='--', c='r')
-    #plt.show()
+    #1カ月のデータを計算する
+    def month_moving_average(self, data):
+        ma=pd.rolling_mean(data, 120, 1)
+        return ma
 
+    #心拍数の最低値と最高値と平均値を求める。戻り値は辞書型
+    def some_check(self,data):
+        ave=data.value.sum()/len(data)
+        maxv=data.value.max()
+        minv=min(data.value)
+        some={'ave':ave,'max_value':maxv,'min_value':minv}
+        return some
