@@ -3,7 +3,7 @@ from simple_MA import *
 
 if __name__ == '__main__':
     sc=Stress_Check()
-    print('go')
+
     data=sc.input_csv('heartrate.csv')
     ma=sc.day_moving_average(data)
 
