@@ -19,12 +19,13 @@ if __name__ == '__main__':
     print('平均:',some['ave'])
     print('最大:',some['max_value'])
     print('最小:',some['min_value'])
-    some=sc.some_check(ma2)
+    some2=sc.some_check(ma2)
     print('-2日目の心拍数-')
-    print('平均:',some['ave'])
-    print('最大:',some['max_value'])
-    print('最小:',some['min_value'])
-    
+    print('平均:',some2['ave'])
+    print('最大:',some2['max_value'])
+    print('最小:',some2['min_value'])
+    some3=some['ave']-some2['ave']
+    print('前日との差',some3)
     ma.plot(style='--')
     ma2.plot(style='--', c='r')
     plt.show()

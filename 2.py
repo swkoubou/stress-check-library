@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 # ID
 CLIENT_ID =  "2284BG"
 CLIENT_SECRET  = "b2a1b298d81cf7d4893974c1c9eedb98"
-ACCESS_TOKEN =  "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1RkdQQ1kiLCJhdWQiOiIyMjg0QkciLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyaHIiLCJleHAiOjE0ODk1ODU4NzUsImlhdCI6MTQ4OTU1NzA3NX0.HcwrQ1B8WQIITEjwz6fyXz2lP0n0bJlL5-xAUVyvf8Q"
-REFRESH_TOKEN =  "91ed2e9af02461546765ea06f24ef16efc211e6a077223951fdbbf2d30410ac3"
+ACCESS_TOKEN =  "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1RkdQQ1kiLCJhdWQiOiIyMjg0QkciLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyaHIiLCJleHAiOjE0ODkxNTY3MTEsImlhdCI6MTQ4OTEyNzkxMX0.-Wi1bj-IC18zLgqakSuzZDqTqm98iEw_lS4KHRCoG3Y"
+REFRESH_TOKEN =  "4736c50702b9e8f0331a9ea58f1cbdf4fd896e5543d8f94588a688f11fc6b344"
 
 
 class Stress_Check:
@@ -44,6 +44,11 @@ class Stress_Check:
         minv=min(data.value)
         some={'ave':ave,'max_value':maxv,'min_value':minv}
         return some
+
+    #一日分を比較
+    def day_day(self,data):
+
+
 
 class Get_Heart_Rate:
     #コンストラクタ
