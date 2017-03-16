@@ -1,5 +1,5 @@
 #ライブラリ simple_MA.pyの動作を確認するプログラム
-from simple_MA import *
+from stress_check import *
 
 if __name__ == '__main__':
     sc=Stress_Check()
@@ -12,8 +12,7 @@ if __name__ == '__main__':
     print('最大:',some['max_value'])
     print('最小:',some['min_value'])
     
+    #青いグラフが元データ ・ 赤いグラフが変換したデータ
     data.plot(style='--')
     ma.plot(style='--', c='r')
     plt.show()
-    #青いグラフが元データ
-    #赤いグラフが変換したデータ
