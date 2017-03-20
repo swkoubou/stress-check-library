@@ -31,12 +31,16 @@ class Stress_Check:
         return ma
 
     #心拍数の最低値と最高値と平均値を求める。戻り値は辞書型
-    def some_check(self, data):
+    def some_data(self, data):
         ave=data.value.sum()/len(data)
         maxv=data.value.max()
         minv=min(data.value)
         some={'ave':ave,'max_value':maxv,'min_value':minv}
         return some
 
-    def subtraction(self, day1, day2):
-        return day2 - day1
+    def stress_check(self, day1, day2):
+        sub = day2 - day1
+        if sub >= 5:
+            return True
+        else:
+            return False
