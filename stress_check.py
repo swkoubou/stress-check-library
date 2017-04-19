@@ -11,7 +11,8 @@ class StressCheck:
     #１日のデータを計算する
     def day_ave(self):
         ma = pd.rolling_mean(self.data, 120, 1) #データの個数によって変更
-        return ma　
+        return ma
+
     #1週間のデータを計算する
     def week_ave(self):
         ma = pd.rolling_mean(self.data, 120, 1)
@@ -31,10 +32,12 @@ class StressCheck:
     def max_data(self,data):
         maxv = data.value.max()
         return maxv
+
     #心拍数（最小値）
     def min_data(self,data):
         minv = min(data.value)
         return minv
+
     #2つのデータを比較してストレスがあるかどうかを判断する
     def check(self, day1, day2):
         sub = day2 - day1
