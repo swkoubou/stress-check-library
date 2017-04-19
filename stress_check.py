@@ -1,27 +1,26 @@
-import fitbit
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-class Stress_Check:
+class StressCheck:
     #コンストラクタ
-    def __init__(self):
-        self.name=''  
+    def __init__(self,data):
+        self.data=data
 
     #datetimeindex型のデータを単純移動平均する
     #１日のデータを計算する
-    def day_ave(self, data):
-        ma=pd.rolling_mean(data, 120, 1) #データの個数によって変更
+    def day_ave(self):
+        ma=pd.rolling_mean(self.data, 120, 1) #データの個数によって変更
         return ma
 
     #1週間のデータを計算する
-    def week_ave(self, data):
-        ma=pd.rolling_mean(data, 120, 1)
+    def week_ave(self):
+        ma=pd.rolling_mean(self.data, 120, 1)
         return ma
 
     #1カ月のデータを計算する
-    def month_ave(self, data):
-        ma=pd.rolling_mean(data, 120, 1)
+    def month_ave(self):
+        ma=pd.rolling_mean(self.data, 120, 1)
         return ma
 
     #心拍数の最低値と最高値と平均値を求める。戻り値は辞書型
@@ -32,6 +31,7 @@ class Stress_Check:
         total={'ave':ave,'max_value':maxv,'min_value':minv}
         return total
 
+    #2つのデータを比較してストレスがあるかどうかを判断する
     def check(self, day1, day2):
         sub = day2 - day1
         if sub >= 5:
