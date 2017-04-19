@@ -1,44 +1,42 @@
-#simple_MAの改良プログラム
-import fitbit
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-class Stress_Check:
+class StressCheck:
     #コンストラクタ
-    def __init__(self):
-        self.name=''
-
-    #csv形式のデータを読み込む 戻り値ははDataFrame
-    def input_csv(self, filename):
-        data = pd.read_csv(filename)
-        return data
+    def __init__(self,data):
+        self.data = data
 
     #datetimeindex型のデータを単純移動平均する
     #１日のデータを計算する
-    def day_moving_average(self, data):
-        ma=pd.rolling_mean(data, 120, 1) #データの個数によって変更
-        return ma
-
+    def day_ave(self):
+        ma = pd.rolling_mean(self.data, 120, 1) #データの個数によって変更
+        return ma　
     #1週間のデータを計算する
-    def week_moving_average(self, data):
-        ma=pd.rolling_mean(data, 120, 1)
+    def week_ave(self):
+        ma = pd.rolling_mean(self.data, 120, 1)
         return ma
 
     #1カ月のデータを計算する
-    def month_moving_average(self, data):
-        ma=pd.rolling_mean(data, 120, 1)
+    def month_ave(self):
+        ma = pd.rolling_mean(self.data, 120, 1)
         return ma
 
-    #心拍数の最低値と最高値と平均値を求める。戻り値は辞書型
-    def some_data(self, data):
-        ave=data.value.sum()/len(data)
-        maxv=data.value.max()
-        minv=min(data.value)
-        some={'ave':ave,'max_value':maxv,'min_value':minv}
-        return some
+    #心拍数（平均値）
+    def ave_data(self, data):
+        ave = data.value.sum()/len(data)
+        return ave
 
-    def stress_check(self, day1, day2):
+    #心拍数（最大値）
+    def max_data(self,data):
+        maxv = data.value.max()
+        return maxv
+    #心拍数（最小値）
+    def min_data(self,data):
+        minv = min(data.value)
+        return minv
+    #2つのデータを比較してストレスがあるかどうかを判断する
+    def check(self, day1, day2):
         sub = day2 - day1
         if sub >= 5:
             return True
