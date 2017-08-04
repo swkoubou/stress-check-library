@@ -3,6 +3,4 @@ __pycache__
 
 test
 
-test_exe.py
-
-heartrate.csv
+heartrate_data.csv
