@@ -2,7 +2,7 @@ import csv
 import pandas as pd
 import numpy as np
 from scipy import signal
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 # 引  数 ： numpy配列の心拍数データ
 # 返り値 ： ストレス指標値
